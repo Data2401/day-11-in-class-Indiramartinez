@@ -1,6 +1,6 @@
 ---
 title: "Dataframes - In Class lab"
-author: "Dr. Shoemaker"
+author: "Indira Martinez
 date: "DATA 2401"
 output: html_document
 ---
@@ -30,7 +30,8 @@ Because you're in an RProject, you don't need to set your working directory in R
 - Use the glimpse function to look at the loaded data
 
 ```{r}
-
+glimpse(grants)
+glimpse
 
 ```
 
@@ -38,7 +39,8 @@ Because you're in an RProject, you don't need to set your working directory in R
 - Create a variable `org` that contains the `organization` column of the dataset
 
 ```{r}
-
+org <- grants$organization
+org
 
 ```
 
@@ -46,7 +48,8 @@ Because you're in an RProject, you don't need to set your working directory in R
 - Confirm that the "organization" column is a vector using the `is.vector()` function. (This is a useful debugging tip if you hit errors later!)
 
 ```{r}
-
+confirm <-  is.vector(org)
+confirm
 
 ```
 
@@ -56,48 +59,54 @@ Now you can ask some interesting questions about the dataset:
 - What was the mean grant value?
 
 ```{r}
-
+grant_value <- mean(grants$total_amount)
+grant_value
 ```
 
 
 - What was the dollar amount of the largest grant?
 
 ```{r}
-
+largest_grant <- max(grants$total_amount)
+largest_grant
 ```
 
 
 - What was the dollar amount of the smallest grant?
 
 ```{r}
-
+smallest_grant <- min(grants$total_amount)
+smallest_grant 
 ```
 
 
 - Which organization received the largest grant?
 
 ```{r}
-
-
+largest_grant_org <- grants$organization[which.max(grants$total_amount)]
+largest_grant_org
 ```
 
 
 - Which organization received the smallest grant?
 
 ```{r}
-
+small_grant_org <- grants$organization[which.min(grants$total_amount)]
+small_grant_org
 ```
 
 - How many grants were awarded in 2010?
 
 ```{r}
-
+grants_awarded_2010 <- sum(grants$start_year == 2010)
+grants_awarded_2010
 ```
 
 - How much was awarded in 2010? 
 
 ```{r}
-
+total_grants_awarded_2010 <- sum(grants$total_amount[grants$start_year == 2010])
+total_grants_awarded_2010
 ```
 
 
